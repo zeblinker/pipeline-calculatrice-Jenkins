@@ -13,7 +13,6 @@ pipeline {
             }
         }
     }
-}
         stage('Test') {
             agent {
                 docker {
@@ -21,7 +20,7 @@ pipeline {
                 }
             }
             steps {
-                sh 'pytest -v --junit-xml test-reports/results.xml sources/test_calc.py'
+                sh 'pyvtest -v --junit-xml test-reports/results.xml sources/test_calc.py'
             }
             post {
                 always {
@@ -29,3 +28,10 @@ pipeline {
                 }
             }
         }
+
+
+
+
+
+}
+
